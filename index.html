@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My PWA App</title>
+
+  <link rel="manifest" href="public/manifest.json">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="A Progressive Web App Example">
+  <link rel="icon" href="public/icons/favicon.ico" type="ico">
+
+  <link rel="stylesheet" href="public/style.css">
+</head>
+
+<body>
+  <h1>PROGRESSIVE WEB APP EXAMPLE</h1>
+
+  <pre>
+    {
+        "name": "My PWA App",  /* Full name of the PWA, displayed when installed on the home screen */
+        "short_name": "MyApp",  /* Short name used when there's limited space, e.g., on the home screen */
+        "description": "A Progressive Web App Example",  /* Short description of the app */
+        "start_url": "/",  /* The URL that will be opened when the app is launched. "/" typically means the root of the site */
+        
+        "display": "fullscreen",  /* Defines the display mode when the app is opened. Options:
+                                      - "fullscreen" : App takes up the entire screen, no browser chrome.
+                                      - "standalone" : App appears like a native app with no browser UI (no address bar).
+                                      - "minimal-ui" : A minimal UI with some controls but without the full browser interface.
+                                      - "browser" : App behaves like a regular webpage with the standard browser UI. */
+                                  
+        "background_color": "#ffffff",  /* The background color of the splash screen, usually the background while the app is loading */
+        
+        "theme_color": "#000000",  /* The color of the browser toolbar or status bar when the app is installed. This is used by browsers and OS to theme the app */
+        
+        "icons": [  /* Icons used for the app, displayed in different places like the home screen, task switcher, etc. */
+          {
+            "src": "./icons/android-chrome-192x192.png",  /* The location of the icon file */
+            "sizes": "192x192",  /* The size of the icon (192x192 pixels is a common size for a standard icon) */
+            "type": "image/png"  /* The file type of the icon (PNG is the most commonly used format) */
+          },
+          {
+            "src": "./icons/android-chrome-512x512.png",  /* Larger icon, typically used for higher resolution displays or splash screens */
+            "sizes": "512x512",  /* The size of the icon (512x512 pixels is commonly used for high-resolution displays) */
+            "type": "image/png"  /* The file type of the icon */
+          }
+        ]
+    }
+    </pre>
+
+  <button id="install-btn">Install App</button>
+
+  <h2>Manual Installation Instructions</h2>
+  <p>To install this Progressive Web App (PWA) manually, follow the steps below depending on your device and browser:
+  </p>
+
+  <h3>On Desktop:</h3>
+  <ul>
+    <li><strong>Google Chrome:</strong> Visit the website and click the "Add to Home Screen" prompt that appears in the
+      address bar. Alternatively, click the three dots (menu) in the top-right corner and select <strong>"Install [App
+        Name]"</strong>.</li>
+    <li><strong>Microsoft Edge:</strong> If you are using Edge, you should see an "Install" prompt in the address bar.
+      Alternatively, click the three dots (menu) in the top-right corner and select <strong>"Apps" → "Install this site
+        as an app"</strong>.</li>
+    <li><strong>Mozilla Firefox:</strong> Currently, Firefox does not support PWA installation prompts, but you can
+      manually create a shortcut to the app by saving the webpage to your desktop. It will not be installed as a full
+      PWA with offline support, though.</li>
+  </ul>
+
+  <h3>On Mobile:</h3>
+  <ul>
+    <li><strong>Google Chrome on Android:</strong> Open the website and you should see the "Add to Home Screen" prompt.
+      Tap it to add the app to your home screen. If the prompt doesn't appear, tap the three dots (menu) and select
+      <strong>"Add to Home Screen"</strong>.
+    </li>
+    <li><strong>Safari on iOS:</strong> Open the website and tap the "Share" button (the square with an arrow). Scroll
+      down and tap <strong>"Add to Home Screen"</strong>.</li>
+    <li><strong>Microsoft Edge on Android:</strong> Similar to Chrome, tap the three dots (menu) and select <strong>"Add
+        to Home Screen"</strong>.</li>
+  </ul>
+
+  <h2>Important Notes</h2>
+  <p>The service worker is optional. While it enables offline functionality and caching for faster loading, the key
+    feature that allows the app to be installed is the <strong>manifest.json</strong> file, which should be placed in
+    the <strong>public</strong> folder. You can still install and use the app even if the service worker is not present.
+  </p>
+  <p>Additionally, the <strong>manifest.json</strong> file must be linked in the <strong>&lt;head&gt;</strong> section
+    of your HTML file using the <code>&lt;link rel="manifest" href="public/manifest.json"&gt;</code> tag. This is
+    essential for the app to be recognized as a Progressive Web App and for the installation prompt to appear.</p>
+
+  <script src="/install.js"></script>
+  <script src="/service-worker.js"></script>
+</body>
+
+</html>
